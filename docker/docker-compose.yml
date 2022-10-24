@@ -25,7 +25,7 @@ services:
         - 3000:3000
         - 8000:8000
       env_file:
-        - dev.env
+        - env/dev.env
 
     db:
       container_name: db
@@ -33,7 +33,7 @@ services:
       volumes:
         - postgres_data:/var/lib/postgresql/data/
       env_file:
-        - db.env
+        - env/db.env
       ports:
             - "5432:5432"
 
@@ -60,4 +60,4 @@ services:
       volumes:
         - ../.:/usr/src/django
       env_file:
-        - dev.env
+        - env/dev.env

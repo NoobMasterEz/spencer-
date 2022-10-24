@@ -1,6 +1,8 @@
 django
 psycopg2
 djangorestframework
+markdown
+django-filter
 ptvsd
 debugpy
 pytest

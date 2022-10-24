@@ -6,7 +6,7 @@ FROM python:3.9
 WORKDIR /usr/src/django
 COPY . /src
 
-COPY docker/wait.sh /usr/local/bin/wait.sh
+COPY docker/entrypoint/wait.sh /usr/local/bin/wait.sh
 RUN chmod +x /usr/local/bin/wait.sh
 
 # install psycopg2 dependencies
