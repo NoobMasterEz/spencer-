@@ -21,7 +21,7 @@ build: ## Build the release and develoment container. The development
 	docker-compose -f $(DEV_COMPOSE_FILE) up -d --build $(c)
 
 bash: ## Run container in development mode
-	docker exec -it $(NAME) sh
+	docker exec -it $(NAME) bash
 
 dev: ## Run container in development mode
 	docker-compose build --no-cache $(c) && docker-compose run $(c)

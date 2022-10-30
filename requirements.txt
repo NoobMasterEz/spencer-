@@ -5,4 +5,5 @@ markdown
 django-filter
 ptvsd
 debugpy
-pytest
+pytest-django
+raven

@@ -1,6 +1,8 @@
 THIRD_PARTY_APPS = []
 
-LOCAL_APPS = []
+LOCAL_APPS = [
+    'spencer.api.polls'
+]
 
 DJANGO_APPS = [
     'django.contrib.admin',
