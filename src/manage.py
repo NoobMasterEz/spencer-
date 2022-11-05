@@ -2,21 +2,22 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
+import logging
+
 from django.conf import settings
+
+logger = logging.getLogger(__name__)
 
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', os.getenv("DJANGO_SETTINGS_MODULE"))
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', os.getenv('DJANGO_SETTINGS_MODULE'))
     if settings.DEBUG:
-        try:
-            if os.environ.get('RUN_MAIN') or os.environ.get('WERKZEUG_RUN_MAIN'):
-                import ptvsd
-
-                ptvsd.enable_attach(address=('0.0.0.0', 4000))
-        except Exception as e:
-            print(e)
-            pass
+        if os.environ.get('RUN_MAIN') or os.environ.get('WERKZEUG_RUN_MAIN'):
+            import ptvsd
+            ptvsd.enable_attach(address=(("0.0.0.0", 3000)))
+            logger.info('debug redy connect on port: 3000')
+            print("Attached remote debugger")
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:

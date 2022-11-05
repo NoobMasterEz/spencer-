@@ -6,4 +6,12 @@ django-filter
 ptvsd
 debugpy
 pytest-django
+factory_boy
+drf-yasg
 raven
+celery
+opencv-python
+flake8
+redis
+django-celery-beat
+django-celery-results

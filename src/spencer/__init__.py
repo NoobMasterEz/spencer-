@@ -1,7 +1,20 @@
-THIRD_PARTY_APPS = []
+
+THIRD_PARTY_APPS = [
+    'rest_framework',
+    'rest_framework.authtoken',
+    'django_celery_beat',
+    'django_celery_results',
+    'drf_yasg',
+]
+
+API_APPS = [
+    'spencer.api.image',
+]
 
 LOCAL_APPS = [
-    'spencer.api.polls'
+    'spencer.module.camera',
+    'spencer.module.mytasks',
+    'spencer.module.users',
 ]
 
 DJANGO_APPS = [
@@ -14,4 +27,4 @@ DJANGO_APPS = [
 ]
 
 MAIN_APPS = list(
-    DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS)
+    DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS + API_APPS)

@@ -8,24 +8,25 @@
             "name": "[Attach]Python: Remote",
             "type": "python",
             "request": "attach",
+            "preLaunchTask": "Integration",
             "connect": {
                 "host": "localhost",
                 "port": 5888
             },
             "pathMappings": [
                 {
-                    "localRoot": "${workspaceFolder}",
+                    "localRoot": "${workspaceFolder}/src",
                     "remoteRoot": "."
                 }
             ],
-            "justMyCode": true
+            "justMyCode": false
         },
         {
             "name": "[Debug]Python: Remote",
             "type": "python",
             "request": "attach",
             "connect": {
-                "host": "localhost",
+                "host": "127.0.0.1",
                 "port": 3000
             },
             "pathMappings": [
@@ -34,7 +35,7 @@
                     "remoteRoot": "."
                 }
             ],
-            "justMyCode": true
+            "justMyCode": false
         }
 
     ]

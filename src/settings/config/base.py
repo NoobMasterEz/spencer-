@@ -6,17 +6,12 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-
-from pathlib import Path
 import os
-import sys
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-sys.path.insert(0, os.path.join(BASE_DIR, '../api'))
-
-
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+TEMP_DIR = BASE_DIR + '/spencer/templates/'
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
@@ -28,6 +23,7 @@ DEBUG = os.getenv("DEBUG", 0)
 
 ALLOWED_HOSTS = list(os.getenv("DJANGO_ALLOWED_HOSTS").split(' '))
 
+AUTH_USER_MODEL = 'users.User'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -40,12 +36,12 @@ LOGGING = {
     'disable_existing_loggers': False,
     'formatters': {
         'short': {
-            'format': '%(asctime)s %(levelname)-7s %(thread)-5d %(message)s',
+            'format': '[%(asctime)s] [%(levelname)-7s] [%(thread)-5d]: %(message)s',
             'datefmt': '%H:%M:%S',
         },
         'verbose': {
             'format':
-            '%(asctime)s %(levelname)-7s %(thread)-5d %(name)s %(filename)s:%(lineno)s | %(funcName)s | %(message)s',
+            '[%(asctime)s] [%(levelname)-7s] [%(thread)-5d %(name)s] %(filename)s:%(lineno)s | %(funcName)s | %(message)s',
             'datefmt': '%Y-%m-%d %H:%M:%S',
         },
         'simple': {
@@ -124,5 +120,20 @@ LOGGING = {
     'root': {
         'level': 'DEBUG',
         'handlers': ['console'],
+    }
+}
+
+# Celery settings
+CELERY_BROKER_URL = "redis://redis:6379"
+CELERY_RESULT_BACKEND = "redis://redis:6379"
+
+# celery setting.
+CELERY_CACHE_BACKEND = 'default'
+
+# django setting.
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+        'LOCATION': 'my_cache_table',
     }
 }

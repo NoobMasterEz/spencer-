@@ -14,13 +14,13 @@
   <p align="center">
     An awesome README template to jumpstart your projects!
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <a href="google.com"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    <a href="google.com">View Demo</a>
     ·
-    <a href="https://github.com/NoobMasterEz/spencer-/issues">Report Bug</a>
+    <a href="google.com">Report Bug</a>
     ·
-    <a href="https://github.com/NoobMasterEz/spencer-/issues">Request Feature</a>
+    <a href="google.com">Request Feature</a>
   </p>
 </div>

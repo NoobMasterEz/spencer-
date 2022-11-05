@@ -1,0 +1,24 @@
+name: Docker Compose Actions Workflow
+on:
+  push:
+    branches:    
+      - '*'         # matches every branch that doesn't contain a '/'
+      - '*/*'       # matches every branch containing a single '/'
+      - '**'        # matches every branch
+      - '!main'     # excludes main
+jobs:
+  test:
+    name: Run test suite
+    runs-on: ubuntu-latest
+    env:
+      COMPOSE_FILE: docker/docker-compose.yml
+      DOCKER_USER: ${{ secrets.DOCKER_USER }}
+      DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: build image
+        run: docker-compose -f docker/docker-compose.yml up -d --build
+      - name: Flake8 
+        run: docker-compose run web flake8
+      - name: runing test 
+        run: docker-compose run web pytest
