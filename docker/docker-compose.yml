@@ -40,8 +40,6 @@ services:
         - env/db.env
       ports:
             - "5432:5432"
-      healthcheck:
-        test: "exit 0"
 
     debug:
       build:

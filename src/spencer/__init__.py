@@ -15,6 +15,7 @@ LOCAL_APPS = [
     'spencer.module.camera',
     'spencer.module.mytasks',
     'spencer.module.users',
+    'spencer.module.dashboard',
 ]
 
 DJANGO_APPS = [

@@ -5,3 +5,5 @@ from .base import BASE_DIR
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 STATICFILES_DIRS =  [ os.path.join(BASE_DIR, 'spencer/static/') ]
 STATIC_URL = BASE_DIR + '/spencer/static/'
+
+AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.AllowAllUsersModelBackend']
